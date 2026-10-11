@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arpit Karna — Student & Developer</title>
-<meta name="description" content="Arpit Karna — B.Tech CSE student at VIT building full-stack web apps, real-time systems and applied-AI tools. Selected work: Watch Party, E-Clinic, TWIN and Evermore.">
+<meta name="description" content="Arpit Karna — B.Tech CSE student at VIT building full-stack web apps, real-time systems and applied-AI tools. Paid client work for RDM Consultancy and Luv Kush Dairy, plus Watch Party, E-Clinic, TWIN and Evermore.">
 <meta name="theme-color" content="#0a0a0a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Arpit Karna — Student & Developer">
@@ -88,14 +88,74 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow" data-reveal>/ Selected work</span>
-      <h2 class="section-title" id="work-title" data-reveal>Four things I built, and how they work.</h2>
-      <p class="lede" data-reveal>Each project below links to its real source. Where a number is shown, it comes from the project's own documentation, with the test conditions stated.</p>
+      <h2 class="section-title" id="work-title" data-reveal>Paid client work, and projects I built for myself.</h2>
+      <p class="lede" data-reveal>Two paid client projects first, then four personal builds. Links go to real source or live sites where they exist, and any number shown comes from the project's own documentation.</p>
     </div>
 
-    <!-- 01 WATCH PARTY -->
+    <!-- 01 RDM -->
+    <article class="case" aria-labelledby="c5">
+      <div class="case-body" data-reveal>
+        <span class="case-num">01 / PAID CLIENT PROJECT · FULL-STACK</span>
+        <h3 id="c5">RDM Client Portal</h3>
+        <p class="case-kicker">A client–admin portal for RDM Aaya Kar Tatah Mu. Aa. Kar. Paramarsha Kendra, an IT, tax and VAT consultancy and audit firm, so clients can access their audit reports securely.</p>
+        <dl class="facts">
+          <div><dt>The problem</dt><dd>The firm's clients need their audit reports, tax reports, financial statements and compliance documents, and each client must see only their own.</dd></div>
+          <div><dt>What I built</dt><dd>Everything: the React interface, the Express API, the MySQL schema, and the Google Drive integration. Clients sign in and see only the documents in their own Drive folder. Administrators manage clients, folder mappings, users, uploads and the audit trail.</dd></div>
+          <div><dt>Key decision</dt><dd>Google Drive stays the file store, and the API is the authorisation layer. It checks ownership and streams the file bytes, so no Drive link, file ID or credential ever reaches the browser. Every access failure returns the same 404, so clients can't probe for other clients' document IDs.</dd></div>
+          <div><dt>Security</dt><dd>Rotating refresh tokens in HTTP-only cookies, CSRF tokens, rate limits, single-use password reset, and a full audit log of logins, views, downloads and admin actions.</dd></div>
+        </dl>
+        <ul class="tags" aria-label="Technologies"><li>React 19</li><li>TypeScript</li><li>Tailwind CSS</li><li>Express 5</li><li>Prisma</li><li>MySQL</li><li>Google Drive API</li><li>JWT</li></ul>
+        <p class="note">Paid client engagement. The code and client data are private, so there is no public repository or demo.</p>
+      </div>
+      <div class="tilt" data-tilt data-reveal>
+        <div class="panel">
+          <span class="panel-label">Access checks · scratch-database run</span>
+          <div>
+            <div class="panel-big">404</div>
+            <p class="panel-sub">What client A gets when requesting client B's document: metadata, view and download alike.</p>
+          </div>
+          <table class="readout">
+            <caption class="sr-only">Selected security behaviours verified in the project</caption>
+            <thead><tr><th scope="col">Attempt</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><td>?client_id= on list endpoint</td><td>ignored</td></tr>
+              <tr><td>Write without CSRF header</td><td>403</td></tr>
+              <tr><td>Client calls admin endpoint</td><td>403</td></tr>
+              <tr><td>Refresh-token reuse</td><td>session revoked</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 LUV KUSH -->
+    <article class="case" aria-labelledby="c6">
+      <div class="case-body" data-reveal>
+        <span class="case-num">02 / PAID CLIENT PROJECT · WEBSITE</span>
+        <h3 id="c6">Luv Kush Dairy</h3>
+        <p class="case-kicker">The public website for Luv Kush Dairy, a milk-processing company in Pokhara, Nepal, presenting the company and its dairy products online.</p>
+        <dl class="facts">
+          <div><dt>What I built</dt><dd>All of it: design, build and launch of a static, responsive site with a home banner, an About section, a product catalogue (milk, curd, ghee, butter, ice cream and more) and a contact page. Customers can send product, dealership and feedback enquiries through a form that delivers by email.</dd></div>
+          <div><dt>Engineering notes</dt><dd>Hand-written HTML, CSS and JavaScript with no framework or build step. It has a mobile menu, a <code>sitemap.xml</code> and <code>robots.txt</code> for search engines, and it runs on the client's own <code>.com.np</code> domain.</dd></div>
+        </dl>
+        <ul class="tags" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>EmailJS</li><li>SEO</li></ul>
+        <div class="links">
+          <a class="btn btn-primary" href="https://luvkushdairy.com.np" target="_blank" rel="noopener">Live site <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <p class="note">Paid client project. The source repository is private.</p>
+      </div>
+      <div class="tilt" data-tilt data-reveal>
+        <div class="panel shot">
+          <img src="assets/luvkush-home.jpg" width="800" height="1408" loading="lazy" decoding="async" alt="Screenshot of the Luv Kush Dairy website on a phone: a green navigation bar, a banner reading Pure Goodness Every Day with the dairy's products, and the About Us section.">
+          <span class="panel-label">luvkushdairy.com.np · live screenshot</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 WATCH PARTY -->
     <article class="case" aria-labelledby="c1">
       <div class="case-body" data-reveal>
-        <span class="case-num">01 / REAL-TIME SYSTEM</span>
+        <span class="case-num">03 / REAL-TIME SYSTEM</span>
         <h3 id="c1">Watch Party</h3>
         <p class="case-kicker">A web app where everyone in a room watches the same video in lock-step, with live chat, reactions, polls and a shared queue.</p>
         <dl class="facts">
@@ -132,7 +192,7 @@
     <!-- 02 ECLINIC -->
     <article class="case" aria-labelledby="c2">
       <div class="case-body" data-reveal>
-        <span class="case-num">02 / FULL-STACK · DJANGO</span>
+        <span class="case-num">04 / FULL-STACK · DJANGO</span>
         <h3 id="c2">E-Clinic</h3>
         <p class="case-kicker">An online clinic where patients find doctors, book video or in-clinic appointments and receive digital prescriptions.</p>
         <dl class="facts">
@@ -168,7 +228,7 @@
     <!-- 03 TWIN -->
     <article class="case" aria-labelledby="c3">
       <div class="case-body" data-reveal>
-        <span class="case-num">03 / FULL-STACK · SIMULATION</span>
+        <span class="case-num">05 / FULL-STACK · SIMULATION</span>
         <h3 id="c3">TWIN</h3>
         <p class="case-kicker">A personal-finance “digital twin” that lets you ask what could happen before you commit to a loan, an investment or a car.</p>
         <dl class="facts">
@@ -198,7 +258,7 @@
     <!-- 04 EVERMORE -->
     <article class="case" aria-labelledby="c4">
       <div class="case-body" data-reveal>
-        <span class="case-num">04 / FULL-STACK · MERN</span>
+        <span class="case-num">06 / FULL-STACK · MERN</span>
         <h3 id="c4">Evermore</h3>
         <p class="case-kicker">A personalised wedding planner: each couple gets an account and private data for their guest list, budget, checklist and vendors.</p>
         <dl class="facts">
@@ -232,7 +292,7 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow" data-reveal>/ More work</span>
-      <h2 class="section-title" id="more-title" data-reveal>Databases, computer vision and a client portal.</h2>
+      <h2 class="section-title" id="more-title" data-reveal>Databases, computer vision and smaller builds.</h2>
     </div>
     <div class="rows">
       <div class="row" data-reveal>
@@ -251,48 +311,41 @@
       </div>
       <div class="row" data-reveal>
         <span class="n">03</span>
-        <h3>Client Document Portal</h3>
-        <p>A secure portal for an audit and tax consultancy. Clients sign in and see only the documents in their own Drive folder. The API checks ownership and streams files, so no Drive link or credential reaches the browser. Administrators manage clients, users and the audit trail.</p>
-        <span class="stack">React · TypeScript · Express · Prisma · MySQL · Google Drive API</span>
-        <span class="badge">Paid client project · Private</span>
-      </div>
-      <div class="row" data-reveal>
-        <span class="n">04</span>
         <h3>Student Management System</h3>
         <p>A web application for managing student records and academic information.</p>
         <span class="stack">PHP · HTML/CSS · JavaScript · MySQL</span>
         <a class="row-link" href="https://github.com/arpitt-007/Student-Management-System" target="_blank" rel="noopener">View code ↗</a>
       </div>
       <div class="row" data-reveal>
-        <span class="n">05</span>
+        <span class="n">04</span>
         <h3>Office Management System</h3>
         <p>Client and employee software for managing office operations and employee records.</p>
         <span class="stack">Dart</span>
         <a class="row-link" href="https://github.com/arpitt-007/OFFICE-MANAGEMENT-SYSTEM" target="_blank" rel="noopener">View code ↗</a>
       </div>
       <div class="row" data-reveal>
-        <span class="n">06</span>
+        <span class="n">05</span>
         <h3>Smart Classroom Attendance</h3>
         <p>An attendance service with a FastAPI backend, an SQLite store and a dashboard page.</p>
         <span class="stack">FastAPI · SQLite · HTML</span>
         <span class="badge">Private repo</span>
       </div>
       <div class="row" data-reveal>
-        <span class="n">07</span>
+        <span class="n">06</span>
         <h3>Screenshot Analyzer</h3>
         <p>A Firefox extension that captures the visible tab and sends it to a serverless backend, which passes it to Google Gemini for analysis.</p>
         <span class="stack">JavaScript · Firefox WebExtension · Vercel · Gemini API</span>
         <span class="badge">Private repo</span>
       </div>
       <div class="row" data-reveal>
-        <span class="n">08</span>
+        <span class="n">07</span>
         <h3>Transportation &amp; Timetable Systems</h3>
         <p>Two Python projects: one for transportation operations and ticket CRUD, one for academic schedules and class timetables.</p>
         <span class="stack">Python · MySQL (timetable)</span>
         <a class="row-link" href="https://github.com/arpitt-007/TRANSPORTATION-MANAGEMENT-SYSTEM" target="_blank" rel="noopener">View code ↗</a>
       </div>
       <div class="row" data-reveal>
-        <span class="n">09</span>
+        <span class="n">08</span>
         <h3>Mess Management &amp; Eco Banking</h3>
         <p>Two console applications written in C++.</p>
         <span class="stack">C++</span>
@@ -331,12 +384,12 @@
     </div>
     <div data-reveal>
       <div class="stats">
-        <div class="stat"><b>19</b><span>Repositories</span></div>
+        <div class="stat"><b>20</b><span>Repositories</span></div>
         <div class="stat"><b>8</b><span>Languages used</span></div>
-        <div class="stat"><b>2</b><span>Live deployments</span></div>
-        <div class="stat"><b>2022</b><span>Started coding</span></div>
+        <div class="stat"><b>3</b><span>Live deployments</span></div>
+        <div class="stat"><b>2</b><span>Paid client projects</span></div>
       </div>
-      <p class="stat-note">Counted from my GitHub projects: public and private repositories, languages from the Skills list, and the two Vercel deployments above.</p>
+      <p class="stat-note">Counted from my GitHub projects: public and private repositories, languages from the Skills list, and the three live sites above (E-Clinic, Evermore, Luv Kush Dairy).</p>
     </div>
   </div>
 </section>
@@ -349,6 +402,7 @@
       <h2 class="section-title" id="exp-title" data-reveal>Education &amp; experience.</h2>
     </div>
     <div class="timeline">
+      <div class="tl-item" data-reveal><span class="tl-year">2026</span><div><h3>Freelance Web Developer</h3><span class="org">RDM Consultancy · Luv Kush Dairy (paid client projects)</span></div></div>
       <div class="tl-item" data-reveal><span class="tl-year">2025 – Present</span><div><h3>B.Tech CSE Student</h3><span class="org">Vellore Institute of Technology</span></div></div>
       <div class="tl-item" data-reveal><span class="tl-year">2025</span><div><h3>Dataset Intern</h3><span class="org">Sstudize</span></div></div>
       <div class="tl-item" data-reveal><span class="tl-year">2024</span><div><h3>Freelance Developer</h3><span class="org">Independent projects</span></div></div>

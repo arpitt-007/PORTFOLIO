@@ -257,6 +257,9 @@ html.no-webgl #stage { display: none; }
   font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1;
 }
 .panel-sub { color: var(--muted); font-size: 0.85rem; max-width: 34ch; margin-top: 0.5rem; }
+.panel.shot { padding: 0; min-height: 0; gap: 0; max-height: 560px; }
+.panel.shot img { width: 100%; height: 520px; object-fit: cover; object-position: top; }
+.panel.shot .panel-label { padding: 0.9rem 1.2rem; border-top: 1px solid var(--border); background: #0c0c0c; }
 .readout { font-family: var(--font-mono); font-size: 0.74rem; width: 100%; border-collapse: collapse; }
 .readout th, .readout td { text-align: left; padding: 0.45rem 0; border-top: 1px solid var(--border); color: var(--muted); font-weight: 400; }
 .readout td:last-child, .readout th:last-child { text-align: right; color: var(--text); }
